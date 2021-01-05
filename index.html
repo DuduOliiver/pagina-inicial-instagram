@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Instagram</title>
+</head>
+
+<body>
+    <div class="instagram-wrapper">
+        <div class="instagram-phone">
+            <div class="pics">
+                <img src="./photo1.jpg" alt="" class="selected">
+                <img src="./photo2.jpg" alt="">
+                <img src="./photo3.jpg" alt="">
+                <img src="./photo4.jpg" alt="">
+                <img src="./photo5.jpg" alt="">
+            </div>
+        </div>
+        <div class="instagram-continue">
+            <div class="group">
+                <img src="./img/instagram-logo.png" class="instagram-logo" alt="instagram logo">
+                <div class="profile-photo">
+                    <img src="./myprofile.jpg" alt="foto de perfil">
+                </div>
+                <a href="#" class="instagram-login">Continue como Eduardo Oliveira</a>
+                <a href="#" class="instagram-logout">Remover conta</a>
+            </div>
+            <div class="group">
+                <p class="not-account">Não é Eduardo Oliveira?</p>
+                <p class="not-account">
+                    <span class="link-blue">Alternar contas</span>
+                    ou
+                    <span class="link-blue">Inscreva-se</span>
+                </p>
+            </div>
+            <div class="get-the-app">
+                <p class="get-app">Baixe o aplicativo</p>
+                <div class="download">
+                    <a href="#" class="app-download"></a>
+                    <a href="#" class="app-download"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+
+    let time = 2000;
+    currentImageIndex = 0;
+    images = document.querySelectorAll('.pics img');     //declaração de variaveis
+    max = images.length;
+
+    function nextimage() {
+
+        images[currentImageIndex]
+            .classList.remove("selected")
+
+        currentImageIndex++                         //Função para selecionar as imagens usando classList
+
+        if (currentImageIndex >= max)
+            currentImageIndex = 0
+
+        images[currentImageIndex].classList.add("selected")
+    };
+
+
+    function start() {
+        setInterval(() => {         //Função para mudar imagem
+            nextimage()
+        }, time)
+    };
+
+    window.addEventListener("load", start); //Quando a página carregar executará a função start
+</script>
+
+</html>
